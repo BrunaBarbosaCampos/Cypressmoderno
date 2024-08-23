@@ -25,11 +25,11 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import loc from '../support/Locators'
+import Cred from '../../config/credenciais.json'
 
-
-Cypress.Commands.add('login_user', (user, psswrd) => {
-cy.get(loc.LOGIN.USER).type(user)
-cy.get(loc.LOGIN.PASSWORD).type(psswrd)
+Cypress.Commands.add('login_user', () => {
+cy.get(loc.LOGIN.USER).type(Cred.email)
+cy.get(loc.LOGIN.PASSWORD).type(Cred.password)
 cy.get(loc.LOGIN.BT_LOGIN).click()
 cy.get(loc.MENSAGE).should('contain', 'Bem vindo, brunateste!')
 })
