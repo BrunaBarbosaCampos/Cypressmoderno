@@ -1,7 +1,7 @@
 ///<reference types="cypress"/> 
 
 
-
+import '../support/commandsaccount'
 
 describe('Works with a project', ()=> {
     beforeEach(()=>{
@@ -16,12 +16,14 @@ describe('Works with a project', ()=> {
 
     it('Insert account', () => {
         cy.login_user('bruna@teste', 'b@t')
+        cy.Acesscont()
         cy.Addcont('Conta teste')
     })
 
 
     it('Should update an account ', () => {
         cy.login_user('bruna@teste', 'b@t')
+        cy.Acesscont()
         cy.Updatecont('Conta teste editada')
         
     })
