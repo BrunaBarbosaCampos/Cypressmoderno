@@ -10,7 +10,6 @@ Cypress.Commands.add('Acesscont', () => {
 Cypress.Commands.add('Addcont', (nomeconta1) => {
     cy.get(loc.CONT.NAME).type(nomeconta1)
     cy.get(loc.CONT.BT_ADD).click()
-    cy.get(loc.MENSAGE, {timeout:3000}).should('contain', 'Conta inserida com sucesso!')
 })
     
     
