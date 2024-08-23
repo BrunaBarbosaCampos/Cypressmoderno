@@ -30,10 +30,9 @@ describe('Works with a project', ()=> {
     })
 
     it('Should not create accout repeted', () => {
-        cy.clock()
         cy.login_user('bruna@teste', 'b@t')
         cy.Acesscont()
-        cy.Addcont('Conta mesmo nome')
+        cy.Addcont('Conta teste editada')
         cy.get(loc.MENSAGE).should('contain', 'Error: Request failed with status code 400')
     })
 
