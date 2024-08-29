@@ -25,7 +25,11 @@ describe('Works with a project', () => {
 					body: {
 						nome: 'Conta criada por API'
 					}
-				}).then((res) => console.log(res))
+				}).then((response) => {
+					expect(response.status).to.eq(201)
+					expect(response.body).to.have.property('id')
+					expect(response.body).to.have.property('nome', 'Conta criada por API')
+				})
 			})
 	})
 })
