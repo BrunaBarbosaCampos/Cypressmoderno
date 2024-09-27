@@ -1,5 +1,7 @@
 ///<reference types="cypress"/>
 
+import Cred from '../../../config/credenciais.json'
+
 describe('Works with a project', () => {
 	beforeEach(() => {
 		// cy.visit('https://barrigareact.wcaquino.me')
@@ -10,9 +12,9 @@ describe('Works with a project', () => {
 			method: 'POST',
 			url: 'https://barrigarest.wcaquino.me/signin',
 			body: {
-				email: 'bruna@teste',
+				email: Cred.email,
 				redirecionar: false,
-				senha: 'b@t'
+				senha: Cred.password
 			}
 		})
 			.its('body.token')
