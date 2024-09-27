@@ -34,4 +34,27 @@ describe('Works with a project', () => {
 				})
 			})
 	})
+
+	it('Reset sistem', () => {
+		cy.request({
+			method: 'POST',
+			url: 'https://barrigarest.wcaquino.me/signin',
+			body: {
+				email: Cred.email,
+				redirecionar: false,
+				senha: Cred.password
+			}
+		})
+			.its('body.token')
+			.should('not.be.empty')
+			.then((token) => {
+				cy.request({
+					url: 'https://barrigarest.wcaquino.me/reset',
+					method: 'GET',
+					headers: { Authorization: `JWT ${token}` }
+				}).then((response) => {
+					expect(response.status).to.eq(200)
+				})
+			})
+	})
 })
